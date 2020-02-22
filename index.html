@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Script Customizado -->
+    <script src="js/script.js"></script>
+
+    <!-- Icone -->
+    <link rel="shortcut icon" href="imagens/ico.png" type="image/x-icon">
+
+    <script>
+
+        // Início
+        $(document).ready(function(){
+
+            PreparaSelecaoEstados();
+
+            // Eventos
+            $('#sltEstados').on('change',function() {
+                PreparaCidades(this.value);
+            });
+
+            $('#btnBuscar').on('click', function() {
+              Busca();
+            });
+
+            $('#edtBusca').on('keyup', function(e) {
+              var key = e.which || e.keyCode;
+              if (key == 13) { 
+                Busca();
+              }
+            });
+        });
+
+    </script>
+
+    <title>Localiza CEP</title>
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">Localiza Endereço</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Quem somos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mt-2">
+
+        <section class="d-flex justify-content-center">
+          <div style="width: 900px;">
+
+            <h3 class="display-4">Localize seu endereço rapidamente!</h3>
+            <p class="lead">
+              Informe abaixo a UF (Unidade Federativa) do endereço na qual deseja encontrar, em seguida informe o nome da rua.
+            </p>
+
+          </div>
+        </section>
+
+        <div class="row d-flex justify-content-center">
+            <div id="caixa_principal" class="border rounded">
+                  <div class="row">
+                    <div class="col-5">
+                      <div class="form-group">
+                        <select id="sltEstados" class="form-control">
+                            <option>-- Selecione aqui o estado --</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 input-group">
+                        <input id="edtBusca" class="form-control" type="search" placeholder="Digite o CEP ou o endereço aqui">
+                        <div class="input-group-append">
+                            <button id="btnBuscar" class="btn btn-danger" type="button">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área de conteúdos -->
+                <div class="row mt-4 caixa_tabela" style="height: 350px;">
+                  <div id="conteudo" class="col-12 input-group"></div>
+                </div>
+            </div>                    
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small">
+      <div class="footer-copyright text-center py-2">© 2020 Copyright:
+        <a href="https://github.com/victorveiga"> Victor Veiga</a>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

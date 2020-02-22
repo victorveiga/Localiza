@@ -1,0 +1,20 @@
+#caixa_principal {
+    width: 900px; 
+    height: 500px;  
+    padding: 20px;
+}
+
+.caixa_tabela {
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+#tabela tbody tr:hover {
+    cursor: pointer;
+    background-color: lightslategray;
+    color: white;
+}
+
+html, body {
+    height: 100%;
+}
